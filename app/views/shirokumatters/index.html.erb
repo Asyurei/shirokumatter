@@ -1,0 +1,11 @@
+<h1>シロクマに関する熱き思い一覧</h1>
+
+<% @shirokumatters.each do |shirokumatter| %>
+    <p>しろくまへの熱き思い:<%= shirokumatter.content %></p>
+    <%= link_to "しろくまへの熱き思いを編集する", edit_shirokumatter_path(shirokumatter.id) %>
+    <%= link_to 'しろくまへの熱き思いを削除する', shirokumatter_path(shirokumatter.id), method: :delete, data: { confirm: '本当に削除して後悔しないですか？' } %>
+<% end %>
+<br>
+<br>
+<br>
+<%=link_to "しろくまへの熱き思いをつぶやく", new_shirokumatter_path %>

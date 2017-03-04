@@ -1,0 +1,8 @@
+<%= form_for(@shirokumatter) do |f| %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <br>
+  <%= f.submit %>
+<% end %>
+
+<%=link_to "しろくまへの熱き思い一覧にもどる", shirokumatters_path %>
