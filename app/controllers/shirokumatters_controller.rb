@@ -1,4 +1,6 @@
 class ShirokumattersController < ApplicationController
+  before_action :set_shirokumatter, only: [:edit, :update, :destroy]
+  
   def index
     @shirokumatters = Shirokumatter.all
   end
@@ -17,11 +19,9 @@ class ShirokumattersController < ApplicationController
   end
 
   def edit
-    @shirokumatter = Shirokumatter.find(params[:id])
   end
 
   def update
-    @shirokumatter = Shirokumatter.find(params[:id])
     if @shirokumatter.update(shirokumatters_params)
       redirect_to shirokumatters_path
     else
@@ -30,9 +30,11 @@ class ShirokumattersController < ApplicationController
   end
 
   def destroy
-    @shirokumatter = Shirokumatter.find(params[:id])
     @shirokumatter.destroy
     redirect_to shirokumatters_path, notice:"しろくまへの熱き思いを・・・削除して・・・しまいました・・・"
+  end
+  
+  def confirm
   end
 
   private
