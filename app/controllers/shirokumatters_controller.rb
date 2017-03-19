@@ -6,7 +6,11 @@ class ShirokumattersController < ApplicationController
   end
 
   def new
-    @shirokumatter = Shirokumatter.new
+    if params[:back]
+      @shirokumatter = Shirokumatter.new(shirokumatters_params)
+    else
+      @shirokumatter = Shirokumatter.new
+    end
   end
 
   def create
@@ -35,6 +39,8 @@ class ShirokumattersController < ApplicationController
   end
   
   def confirm
+    @shirokumatter = Shirokumatter.new(shirokumatters_params)
+    render:new if @shirokumatter.invalid?
   end
 
   private

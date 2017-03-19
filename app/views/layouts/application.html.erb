@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Shirokumatters</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shirokumatter</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  
+  <header>
+    <ul>
+      <li><%= link_to "Shirokumatter", root_path %></li>
+      <li><%= link_to "しろくまへの熱き思い", shirokumatters_path %></li>
+    </ul>
+  </header>
 
 <%= yield %>
+
+  <footer>
+      <p>運営会社 mikami shirokuma株式会社</p>
+      <p>© 2017 Copyright mikami shirokuma Corp.</p>
+  </footer>
 
 </body>
 </html>

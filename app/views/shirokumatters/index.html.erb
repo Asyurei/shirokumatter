@@ -1,13 +1,14 @@
-<p><%= notice %></p>
-
-<h1>シロクマに関する熱き思い一覧</h1>
-
-<% @shirokumatters.each do |shirokumatter| %>
-    <p>しろくまへの熱き思い:<%= shirokumatter.content %></p>
-    <%= link_to "しろくまへの熱き思いを編集する", edit_shirokumatter_path(shirokumatter.id) %>
-    <%= link_to 'しろくまへの熱き思いを削除する', shirokumatter_path(shirokumatter.id), method: :delete, data: { confirm: '本当に削除して後悔しないですか？' } %>
-<% end %>
-<br>
-<br>
-<br>
-<%=link_to "しろくまへの熱き思いをつぶやく", new_shirokumatter_path %>
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+    <p><%= notice %></p>
+    <h1>しろくまに対する熱き思い一覧</h1>
+      <%= link_to "しろくまへの熱き思いをつぶやく", new_shirokumatter_path, class: 'btn btn-default' %>
+    <% @shirokumatters.each do |shirokumatter| %>
+    <div class="row">
+      <h4><strong><%= shirokumatter.content %></strong></h4>
+      <%= link_to "しろくまへの熱き思いを編集する", edit_shirokumatter_path(shirokumatter.id), class: 'btn btn-default btn-sm btn-success' %>
+      <%= link_to "しろくまへの熱き思いを削除する", shirokumatter_path(shirokumatter.id), method: :delete, data: { confirm: 'この熱き思いをに削除して後悔しないですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
+    </div>
+    <% end %>
+  </div>
+</div>
